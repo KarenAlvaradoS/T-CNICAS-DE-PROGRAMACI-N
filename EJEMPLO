@@ -1,0 +1,24 @@
+# ejemplo_encapsulacion_1.py
+
+class CuentaBancaria:
+    def __init__(self, saldo_inicial):
+        self.__saldo = saldo_inicial
+
+    def depositar(self, monto):
+        self.__saldo += monto
+
+    def retirar(self, monto):
+        if monto <= self.__saldo:
+            self.__saldo -= monto
+        else:
+            print("Saldo insuficiente")
+
+    def obtener_saldo(self):
+        return self.__saldo
+
+# Uso
+cuenta = CuentaBancaria(100)
+cuenta.depositar(50)
+print(cuenta.obtener_saldo())  # Output: 150
+cuenta.retirar(70)
+print(cuenta.obtener_saldo())  # Output: 80
